@@ -1,0 +1,84 @@
+.container-fluid {
+  background-image: url("../images/battleStartGalax2.jpg");
+  height: 100vh;
+}
+
+#headerlogo {
+  display: block;
+  margin: auto auto;
+}
+
+.row {
+  height: 200px;
+}
+
+.character {
+  display: block;
+  position: relative;
+  margin: auto auto;
+  width: 125px;
+  height: 125px;
+  opacity: none;
+}
+
+.port {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 150px;
+  margin-top: -15px;
+}
+
+.port_label {
+  position: absolute;
+  background-color: #6c4aaa;
+  color: white;
+  font-family: "Titillium Web", sans-serif;
+  margin-left: 12px;
+  height: 25px;
+  line-height: 25px;
+  width: 125px;
+  text-align: center;
+  margin-top: 0px;
+  font-size: 15px;
+  z-index: 4;
+}
+
+.container {
+  /* height:auto; */
+}
+
+.jumbotron {
+  background: none;
+
+  max-width: 960px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 20px auto;
+}
+
+.badge {
+  font-size: 25px;
+}
+
+.enemiesCard {
+  background-color: rgb(228, 228, 236);
+  font-size: 40px;
+  font-weight: bold;
+  height: 150px;
+  color:blue;
+  opacity: 0.5;
+  border-radius: 15px;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.defenderCard {
+  background-color: rgb(228, 228, 236);
+  font-size: 40px;
+  font-weight: bold;
+  height: 150px;
+  color: red;
+  opacity: 0.5;
+  border-radius: 15px;
+  font-family: "Titillium Web", sans-serif;
+}

@@ -38,7 +38,7 @@ $(document).ready(() => {
   //Choose Your Fighter
 
   $(".port").on("click", event => {
-    if ($(event.currentTarget.style.border == "")) {
+    if ($(event.currentTarget).css("border") == "0px none rgb(255, 255, 255)") {
       $(event.currentTarget).css("border", "5px solid yellow");
       console.log(event.currentTarget);
 
@@ -62,20 +62,21 @@ $(document).ready(() => {
           // $(this).clone().appendTo($('#r2c2'));
 
           $(this)
-            .clone()
+            .clone(true)
             .appendTo(rowArr[mycol]);
           $(this).remove();
           mycol++;
         }
       });
     } else {
-      console.log(event.currentTarget);
-      $(event.currentTarget).clone().appendTo($("#defender"));
-      $(event.currentTarget).remove();
-    } 
+     
+      if ($(event.currentTarget).css("border-color") == "rgb(255, 0, 0)") {
+        $('#defender').parent().find('.port').remove();
+        $(event.currentTarget)
+          .clone()
+          .appendTo($("#defender"));
+        $(event.currentTarget).remove();
+      }
+    }
   });
-
-
-
-
 });

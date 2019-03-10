@@ -95,9 +95,10 @@
   font-family: "Titillium Web", sans-serif;
 }
 p {
-  font-size: 24px;
+  font-size: 18px;
   color:black;
   padding-bottom: 10px;
+  margin-left: 25px;
 }
 .defend { word-wrap: break-word;
   font-size: 30px;

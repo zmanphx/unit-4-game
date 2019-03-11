@@ -87,9 +87,9 @@ $(document).ready(() => {
     };
   }
 
-  var introSound = new sound("assets/javascript/bsgtheme.MP3");
-  var bsgAlive = new sound("assets/javascript/bsgAlive.MP3");
-  var bsgmerge = new sound("assets/javascript/Merged_bsgth_bsgal.MP3");
+ // var introSound = new sound("assets/javascript/bsgtheme.MP3");
+  //var bsgAlive = new sound("assets/javascript/bsgAlive.MP3");
+  var bsgmerge = new sound("assets/sounds/Merged_bsgth_bsgal.MP3");
 
   function reset() {
     heroAttackVal = 0;

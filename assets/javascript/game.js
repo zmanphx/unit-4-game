@@ -87,7 +87,7 @@ function sound(src) {
     }
   };
  
-  var introSound = new sound("assets/javascript/bsgtheme.mp3");
+  var introSound = new sound("assets/javascript/bsgtheme.MP3");
  
 
   

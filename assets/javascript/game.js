@@ -1,9 +1,8 @@
 $(document).ready(() => {
-  
-    var onplaying = true;
-    var onpause = false;
-  
-    function shuffle() {
+  var onplaying = true;
+  var onpause = false;
+
+  function shuffle() {
     var baseattack = [4, 8, 12, 16];
     var i = 0,
       j = 0,
@@ -110,31 +109,25 @@ $(document).ready(() => {
     $("#loss").text(losses);
   }
 
-
-  
-  
-
- // introSound = new sound("assets/javascript/bsgtheme.mp3");
+  // introSound = new sound("assets/javascript/bsgtheme.mp3");
   //introSound.play()
 
-//setTimeout(function(){bgSound = new Audio("assets/javascript/bsgtheme.mp3");
-//bgSound.loop = true;
-//bgSound.play();}, 2000);
+  //setTimeout(function(){bgSound = new Audio("assets/javascript/bsgtheme.mp3");
+  //bgSound.loop = true;
+  //bgSound.play();}, 2000);
 
- // bgSound = new Audio("assets/javascript/bsgtheme.mp3");
- // bgSound.loop = true;
+  // bgSound = new Audio("assets/javascript/bsgtheme.mp3");
+  // bgSound.loop = true;
   //bgSound.play();
-
- 
-  
 
   $(".port").on("click", function() {
     if ($(event.currentTarget).css("border") == "0px none rgb(255, 255, 255)") {
       $(event.currentTarget).css("border", "5px solid yellow");
       console.log(event.currentTarget);
 
-      $('#soundtrack').get(0).play();
-
+      $("#soundtrack")
+        .get(0)
+        .play();
 
       const $object = $(event.currentTarget);
       $object.data({ isVillian: false });
@@ -144,8 +137,7 @@ $(document).ready(() => {
       $("#health").text(heroStartingH);
       $("#healthAt").text(heroAttackVal);
       $("#fight").text("Choose your Opponent!");
-      // $('#starbuck').clone().appendTo($('#r2c2'));
-      // $('#starbuck').remove();
+     
       var r2c2 = $("#r2c2");
       var r2c3 = $("#r2c3");
       var r2c4 = $("#r2c4");
@@ -158,18 +150,17 @@ $(document).ready(() => {
         if (this.style.border == "") {
           this.style.border = "5px solid red";
           console.log(rowArr[0]);
-          // $(this).clone().appendTo($('#r2c2'));
 
-          $(this)
-            //  .clone(true)
-            .appendTo(rowArr[mycol]);
-          // $(this).remove();
+          $(this).appendTo(rowArr[mycol]);
+
           mycol++;
         }
       });
     } else {
       if ($(event.currentTarget).css("border-color") == "rgb(255, 0, 0)") {
-        if (heroStartingH <= 0){  return;}
+        if (heroStartingH <= 0) {
+          return;
+        }
         $("#defender")
           .parent()
           .find(".port")
@@ -193,8 +184,7 @@ $(document).ready(() => {
     if (defenderReady == false) {
       return;
     }
-   
-   
+
     //hit enemy decrease enemy health by attackpower
     villStartingH = villStartingH - heroAttackVal;
     $("#healthEnemy").text(villStartingH);
@@ -216,42 +206,26 @@ $(document).ready(() => {
       } else {
         $("#fight").text("You Defeated All, You Win!");
         WinLoss("w");
-
-        }
+      }
     }
 
     if (heroStartingH <= 0) {
       WinLoss("l");
-       defenderReady = false;
-      /* if (defenderReady == false) {
-        return;
-      } */
+      defenderReady = false;
       $("#fight").text("Game Over, You Loose");
-      
-        WinLoss("");
-     
+
+      WinLoss("");
     }
-
-    //increase attack power by base
-    // write to html;
-
-    //decrease hero health by enemy attackpower;
-    //write to html
-    // if healt of hero is reaches zero or less game over.
-    //if health of villian is zero or less choose next villian
   });
 
-  $("#reset").on("click", function() {    
-
+  $("#reset").on("click", function() {
     WinLoss("");
     setTimeout(function() {
-        $("#jb1").remove();
-        $jb1.appendTo(".jumbotron");
-        reset();
-      }, );
-
-
+      $("#jb1").remove();
+      $jb1.appendTo(".jumbotron");
+      reset();
     });
+  });
 
   var $jb1 = $("#jb1").clone(true, true);
 });

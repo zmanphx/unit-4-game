@@ -1,5 +1,5 @@
 .container-fluid {
-  background-image: url("../images/battleStartGalax2.jpg");
+  background-image: url("../images/bg3.jpg");
   height: 100vh;
 }
 
@@ -27,7 +27,7 @@
   color: white;
   width: 150px;
   height: 160px;
-  margin-top: -15px;
+  margin-top: 0px;
 }
 
 .port_label {
@@ -64,10 +64,10 @@
 
 .chooseCard {
   background-color: rgb(228, 228, 236);
-  font-size: 35px;
+  font-size: 23px;
   font-weight: bold;
   height: 150px;
-  color: black;
+  color: blue;
   opacity: 0.5;
   border-radius: 15px;
   font-family: "Titillium Web", sans-serif;
@@ -75,7 +75,7 @@
 
 .enemiesCard {
   background-color: rgb(228, 228, 236);
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   height: 150px;
   color: blue;

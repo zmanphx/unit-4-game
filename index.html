@@ -22,14 +22,19 @@
       <div class="jumbotron">
         <div class="container" id="jb1">
           <!--**************** Row 1 ***************************************  -->
-          <div class="row  justify-content-left align-items-center" id="row1">
-            <div class="col-4">
+          <div class="row  justify-content-left" id="row1">
+            <div class="col-4 my-auto">
               <div class="card card-block d-flex chooseCard">
-                <h5
+                <h2
                   class="card-body align-items-center d-flex justify-content-center"
                 >
                   Choose Your Fighter
-                </h5>
+                  
+                </h2>
+                <p>Wins: <span id="wins"></span></p> 
+                <p>Losses: <span id="loss"></span></p> 
+                <a href="#" class="btn width 50 btn-success id" id="reset">Reset</a> 
+           
               </div>
             </div>
 
@@ -40,7 +45,7 @@
                   src="assets/images/apollo.jpg"
                  
                 />
-                <h5 class="port_label">Apollo -120</h5>
+                <h5 class="port_label">Apollo -200</h5>
               </section>
             </div>
 
@@ -69,11 +74,11 @@
           <div class="row justify-content-left align-items-center " id="row2">
             <div class="col-6">
               <div class="card card-block d-flex enemiesCard">
-                <h5
+                <h3
                   class="card-body align-items-center d-flex justify-content-center"
                 >
                   Opponents To Fight
-                </h5>
+                </h3>
               </div>
             </div>
 
@@ -105,7 +110,8 @@
                  <p> Opponents Attack Power:  <span id="healthEnemyAt"></span></p> 
               
                  <a href="#" class="btn width 50 btn-danger id" id="fight">Click To Attack</a> 
-            </div>
+                 
+                </div>
             </div>
             >
 
@@ -117,6 +123,9 @@
       </div>
     </div>
 
+
+ 
+    <audio id="soundtrack" src="assets/javascript/bsgtheme.mp3" type="audio/ogg"></audio>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="

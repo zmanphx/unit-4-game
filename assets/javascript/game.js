@@ -1,5 +1,9 @@
 $(document).ready(() => {
-  function shuffle() {
+  
+    var onplaying = true;
+    var onpause = false;
+  
+    function shuffle() {
     var baseattack = [4, 8, 12, 16];
     var i = 0,
       j = 0,
@@ -20,7 +24,7 @@ $(document).ready(() => {
     isVillian: true,
     attackpower: attackpower[0],
     healthscore: 0,
-    startingHealth: 120,
+    startingHealth: 200,
     soundfile: ""
   });
 
@@ -59,9 +63,14 @@ $(document).ready(() => {
   var villStartingH = 0;
   var fightnumber = 0;
   var defenderReady = false;
+  var winning = 0;
+  var losses = 0;
   //Choose Your Fighter
 
   reset();
+
+  $("#wins").text(winning);
+  $("#loss").text(losses);
 
   function reset() {
     heroAttackVal = 0;
@@ -83,14 +92,49 @@ $(document).ready(() => {
 
     $("#numberSix").data({ attackpower: attackpower[3] });
 
+    WinLoss("");
+
     $("#fight").text("Let's Play");
     $jb1 = $("#jb1").clone(true, true);
   }
+
+  function WinLoss(result) {
+    if (result === "w") {
+      winning++;
+    }
+    if (result === "l") {
+      losses++;
+    }
+
+    $("#wins").text(winning);
+    $("#loss").text(losses);
+  }
+
+
+  
+  
+
+ // introSound = new sound("assets/javascript/bsgtheme.mp3");
+  //introSound.play()
+
+//setTimeout(function(){bgSound = new Audio("assets/javascript/bsgtheme.mp3");
+//bgSound.loop = true;
+//bgSound.play();}, 2000);
+
+ // bgSound = new Audio("assets/javascript/bsgtheme.mp3");
+ // bgSound.loop = true;
+  //bgSound.play();
+
+ 
+  
 
   $(".port").on("click", function() {
     if ($(event.currentTarget).css("border") == "0px none rgb(255, 255, 255)") {
       $(event.currentTarget).css("border", "5px solid yellow");
       console.log(event.currentTarget);
+
+      $('#soundtrack').get(0).play();
+
 
       const $object = $(event.currentTarget);
       $object.data({ isVillian: false });
@@ -125,6 +169,7 @@ $(document).ready(() => {
       });
     } else {
       if ($(event.currentTarget).css("border-color") == "rgb(255, 0, 0)") {
+        if (heroStartingH <= 0){  return;}
         $("#defender")
           .parent()
           .find(".port")
@@ -148,7 +193,8 @@ $(document).ready(() => {
     if (defenderReady == false) {
       return;
     }
-
+   
+   
     //hit enemy decrease enemy health by attackpower
     villStartingH = villStartingH - heroAttackVal;
     $("#healthEnemy").text(villStartingH);
@@ -169,25 +215,21 @@ $(document).ready(() => {
         $("#fight").text("Choose your next Opponent!");
       } else {
         $("#fight").text("You Defeated All, You Win!");
+        WinLoss("w");
 
-        $("#jb1").remove();
-
-        $jb1.appendTo(".jumbotron");
-        reset();
-       
-      }
+        }
     }
 
     if (heroStartingH <= 0) {
-      if (defenderReady == false) {
+      WinLoss("l");
+       defenderReady = false;
+      /* if (defenderReady == false) {
         return;
-      }
+      } */
       $("#fight").text("Game Over, You Loose");
-
-      $("#jb1").remove();
-      $jb1.appendTo(".jumbotron");
-
-      reset();
+      
+        WinLoss("");
+     
     }
 
     //increase attack power by base
@@ -198,6 +240,18 @@ $(document).ready(() => {
     // if healt of hero is reaches zero or less game over.
     //if health of villian is zero or less choose next villian
   });
+
+  $("#reset").on("click", function() {    
+
+    WinLoss("");
+    setTimeout(function() {
+        $("#jb1").remove();
+        $jb1.appendTo(".jumbotron");
+        reset();
+      }, );
+
+
+    });
 
   var $jb1 = $("#jb1").clone(true, true);
 });

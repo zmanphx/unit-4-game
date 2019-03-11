@@ -125,9 +125,7 @@ $(document).ready(() => {
       $(event.currentTarget).css("border", "5px solid yellow");
       console.log(event.currentTarget);
 
-      $("#soundtrack")
-        .get(0)
-        .play();
+      document.getElementById('sound1').play();
 
       const $object = $(event.currentTarget);
       $object.data({ isVillian: false });
@@ -137,7 +135,7 @@ $(document).ready(() => {
       $("#health").text(heroStartingH);
       $("#healthAt").text(heroAttackVal);
       $("#fight").text("Choose your Opponent!");
-     
+
       var r2c2 = $("#r2c2");
       var r2c3 = $("#r2c3");
       var r2c4 = $("#r2c4");

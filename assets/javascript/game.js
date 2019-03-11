@@ -71,26 +71,6 @@ $(document).ready(() => {
   $("#wins").text(winning);
   $("#loss").text(losses);
 
-  function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function() {
-      this.sound.play();
-    };
-
-    this.stop = function() {
-      this.sound.pause();
-    };
-  }
-
- // var introSound = new sound("assets/javascript/bsgtheme.MP3");
-  //var bsgAlive = new sound("assets/javascript/bsgAlive.MP3");
-  var bsgmerge = new sound("assets/sounds/Merged_bsgth_bsgal.MP3");
-
   function reset() {
     heroAttackVal = 0;
     heroAttackBase = 0;
@@ -133,9 +113,7 @@ $(document).ready(() => {
     if ($(event.currentTarget).css("border") == "0px none rgb(255, 255, 255)") {
       $(event.currentTarget).css("border", "5px solid yellow");
       console.log(event.currentTarget);
-
-       bsgmerge.play();
-     
+      document.getElementById("sound1").play();
 
       const $object = $(event.currentTarget);
       $object.data({ isVillian: false });
